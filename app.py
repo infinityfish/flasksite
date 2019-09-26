@@ -1,8 +1,13 @@
 
 
-from flask import Flask
+from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
 
 @app.route('/')
-def hello_world():
-    return 'This Erix Flask App running successfully'
+def home():
+    return render_template('index.html')
+
+@app.route('/<name>')
+def profile(name):
+	return render_template('index.html', name=name)
+
